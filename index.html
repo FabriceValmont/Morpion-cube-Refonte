@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jeuStyle.css">
+    <link href="/dist/menuStyle.css" rel="stylesheet">
+    <title>Morpion Cube</title>
+</head>
+<body id="body" class="w-full h-screen bg-no-repeat bg-contain bg-center text-center dark:bg-slate-900 pt-[4rem]"
+style="background-image: url(Image/Fond_menu_morpion.jpg);">
+
+<div id="gameMenu">
+    <h1 class="text-[28px] sm:text-[72px] font-sans font-bold pt-10 sm:pt-0 sm:pb-[2rem] pb-5 text-[white] ">Morpion-Cube</h1>
+    
+    <div class="font-['Arial_Black'] flex-wrap space-y-5 text-[white] 
+    border-box h-48 w-48 mr-auto ml-auto" id="menu">
+        <div class="border-4 border-[#E708FF] hover:bg-[#E708FF]" id="list">
+            <input type="button" id="play" value="Jouer">
+        </div>
+        <div class="border-4 border-[#E708FF] hover:bg-[#E708FF]" id="list">
+            <input type="button" id="multijoueur" value="Multijoueur">
+        </div>
+        <div class="border-4 border-[#E708FF] hover:bg-[#E708FF]" id="list">
+            <input type="button" id="options" value="Options">
+        </div>
+
+    </div>
+
+    <div class="text-orange-600 font-['Arial'] border-box h-[24rem] sm:h-[16rem] w-[24rem] sm:w-[56rem] mr-auto ml-auto space-y-5 bg-white opacity-80 font-bold pt-5" id="ruleOfGame">
+        <p class="text-[20px] underline ">Règle du jeu</p>
+        <p>Il s'agit d'un jeu avec les règles du Morpion avec la particularité du Rubik's Cube.<br>
+            Pour gagner les joueurs doivent aligner trois symboles identiques sur une ligne horizontale, verticale ou diagonale sur la face principale du cube.</p>
+        <p>Le joueur à deux choix : placer un symbole ou tourner une des lignes du cube.<br>
+            Si toutes les faces du Cube sont remplies, les joueurs continuent à tourner les lignes jusqu'à avoir un vainqueur.</p>
+    </div>
+    
+</div>
+
+<div id="twoPlayerGame">
+
+    <h1 class="text-center text-[72px] font-sans font-bold ">Morpion-Cube</h1>
+
+    <div class="flex justify-center space-x-5" id="buttonReload">
+    <input type="button" class="border-4 border-[white] bg-white text-black hover:bg-black hover:text-white hover:border-[black]" id="reload" value="Rejouer">
+    <input type="button" class="border-4 border-[white] bg-white text-black hover:bg-black hover:text-white hover:border-[black]" id="reloadMenu" value="Revenir au menu">
+    </div>
+    
+    <p class="flex justify-center text-[2rem]" id="message"></p>
+    <p id="titleBoardPrincipale"></p>
+
+    <div id="game1">
+
+        <div class="flex justify-center space-x-[20rem] text-[2rem]">
+        <p id="joueur1">Joueur 1 (X)</p>
+        <p id="joueur2">Joueur 2 (O)</p>
+        </div>
+
+        <div class="grid grid-rows-3 grid-cols-3 h-48 w-48 mr-auto ml-auto border-4 border-[#E708FF] bg-black opacity-75" id="board1">
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+            <div class= "cell1" ></div>
+        </div>
+    </div>
+
+    <div class="flex space-x-5 justify-center font-['Arial_Black'] text-black" id="buttonUp">
+        <div id = "arrowUpLeft">
+            <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonUpLeft">Haut</button>
+        </div>
+        <div id = "arrowUpMiddle">
+            <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonUpMiddle">Haut</button>
+        </div>
+        <div id = "arrowUpRight">
+            <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonUpRight">Haut</button>
+        </div>
+    </div>
+
+    <div class="h-full w-[45rem] flex justify-center ml-auto mr-auto " id="game">
+
+        <div id="game2">
+
+            <div class="grid grid-rows-3 grid-cols-3 h-48 w-48 border-4 border-[#E708FF] bg-black opacity-75" id="board2">
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+                <div class= "cell2" ></div>
+            </div>
+        </div>
+
+        <div class=" flex-wrap space-y-[48px] font-['Arial_Black'] text-black">
+            <div id = "arrowLeftUp">
+                <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonLeftUp">Gauche</button>
+            </div>
+            <div id = "arrowLeftMiddle">
+                <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonLeftMiddle">Gauche</button>
+            </div>
+            <div id = "arrowLeftDown">
+                <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonLeftDown">Gauche</button>
+            </div>
+            
+        </div>
+
+        <div class="grid grid-rows-3 grid-cols-3 h-48 w-48 border-4 border-[#E708FF] bg-black opacity-75"  id="board">
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+            <div class= "cell" ></div>
+        </div>
+
+        <div class=" flex-wrap space-y-[48px] font-['Arial_Black'] text-black">
+            <div id = "arrowRightUp">
+                <button class="border-4 border-[white] bg-white pl-1 pr-1 hover:bg-black hover:text-white hover:border-[black]" id="buttonRightUp">Droite</button>
+            </div>
+            <div id = "arrowRightMiddle">
+                <button class="border-4 border-[white] bg-white pl-1 pr-1 hover:bg-black hover:text-white hover:border-[black]" id="buttonRightMiddle">Droite</button>
+            </div>
+            <div id = "arrowRightDown">
+                <button class="border-4 border-[white] bg-white pl-1 pr-1 hover:bg-black hover:text-white hover:border-[black]" id="buttonRightDown">Droite</button>
+            </div>
+        </div>
+
+        <div class="grid grid-rows-3 grid-cols-3 h-48 w-48 border-4 border-[#E708FF] bg-black opacity-75"  id="board4">
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+            <div class= "cell4" ></div>
+        </div>
+    </div>
+    
+    <div class="flex space-x-7 justify-center font-['Arial_Black'] text-black" id="buttonDown">
+        <div id = "arrowDownLeft">
+            <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonDownLeft">Bas</button>
+        </div>
+        <div id = "arrowDownMiddle">
+            <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonDownMiddle">Bas</button>
+        </div>
+        <div id = "arrowDownRight">
+            <button class="border-4 border-[white] bg-white hover:bg-black hover:text-white hover:border-[black]" id="buttonDownRight">Bas</button>
+        </div>
+    </div>
+
+    <div id="game3">
+        <div class="grid grid-rows-3 grid-cols-3 h-48 w-48 mr-auto ml-auto border-4 border-[#E708FF] bg-black opacity-75"  id="board5">
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+            <div class= "cell5" ></div>
+        </div>
+    </div>
+
+    <p class="text-center text-[2rem] " id="titleBoardSecondary">Face arrière</p>
+
+    <div class="grid grid-rows-3 grid-cols-3 h-48 w-48 mr-auto ml-auto border-4 border-[#E708FF] bg-black opacity-75"  id="board3">
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+        <div class= "cell3" ></div>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
